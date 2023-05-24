@@ -1,9 +1,0 @@
-{
-  "version": 2,
-  "routes": [
-    {
-      "src": "/api/:path(.*)",
-      "dest": "https://notewriter-backend.vercel.app/:path"
-    }
-  ]
-}

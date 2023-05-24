@@ -5,7 +5,7 @@ import react from "@vitejs/plugin-react-swc";
 export default defineConfig({
   server: {
     proxy: {
-      "/api": "https://notewriter-backend.vercel.app",
+      "/api": "https://notewriter-backend.vercel.app/",
     },
   },
   plugins: [react()],
