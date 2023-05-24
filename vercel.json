@@ -1,8 +1,8 @@
 {
   "rewrites": [
     {
-      "source": "/api/notes/:path(.*)",
-      "destination": "https://notewriter-backend.vercel.app/:path"
+      "source": "/api/:path(.*)",
+      "destination": "https://notewriter-backend.vercel.app/api/:path"
     }
   ]
 }
