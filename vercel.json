@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "routes": [
+    {
+      "src": "/api/notes",
+      "headers": {
+        "Location": "https://notewriter-backend.vercel.app/api/notes"
+      },
+      "status": 308
+    }
+  ]
+}
