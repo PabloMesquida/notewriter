@@ -8,9 +8,12 @@ function App() {
   useEffect(() => {
     async function loadNotes() {
       try {
-        const response = await fetch("/api/notes", {
-          method: "GET",
-        });
+        const response = await fetch(
+          "https://notewriter-backend.vercel.app/api/notes",
+          {
+            method: "GET",
+          }
+        );
         const notes = await response.json();
         setNotes(notes);
       } catch (error) {
