@@ -7,7 +7,7 @@ interface NoteProps {
 }
 
 const Note = ({ note }: NoteProps) => {
-  const { title, text, createdAt, updatedAt } = note;
+  const { title, text } = note;
   return (
     <Card className={styles.noteCard}>
       <Card.Body>
