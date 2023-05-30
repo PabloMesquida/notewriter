@@ -4,7 +4,7 @@ import { Note as NoteModel } from "./models/note";
 import { Button, Col, Container, Row, Spinner } from "react-bootstrap";
 import { FaPlus } from "react-icons/fa";
 import Note from "./components/Note";
-import styles from "./styles/NotePage.module.css";
+import styles from "./styles/NotesPage.module.css";
 import styleUtils from "./styles/utils.module.css";
 import AddEditNoteDialog from "./components/AddEditNoteDialog";
 
@@ -43,7 +43,7 @@ function App() {
   }
 
   const notesGrid = (
-    <Row xs={1} md={2} xl={3} className="g-4">
+    <Row xs={1} md={2} xl={3} className={`${styles.noteGrid} g-4`}>
       {notes.map((note) => (
         <Col key={note._id}>
           <Note
@@ -58,7 +58,7 @@ function App() {
   );
 
   return (
-    <Container>
+    <Container className={styles.notesPage}>
       <Button
         className={`${styleUtils.blockCenter} ${styleUtils.flexCenter} mb-4`}
         onClick={() => setShowNoteDialog(true)}
