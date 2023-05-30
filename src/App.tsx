@@ -42,7 +42,7 @@ function App() {
     }
   }
 
-  const noteGrid = (
+  const notesGrid = (
     <Row xs={1} md={2} xl={3} className="g-4">
       {notes.map((note) => (
         <Col key={note._id}>
@@ -67,6 +67,14 @@ function App() {
         Add new note
       </Button>
       {notesLoading && <Spinner animation="border" variant="primary" />}
+      {showNotesLoadingError && (
+        <p>Something went wrong. Please refresh the page.</p>
+      )}
+      {!notesLoading && !showNotesLoadingError && (
+        <>
+          {notes.length > 0 ? notesGrid : <p>You don't have any notes yet.</p>}
+        </>
+      )}
       {showNoteDialog && (
         <AddEditNoteDialog
           onDismiss={() => setShowNoteDialog(false)}
