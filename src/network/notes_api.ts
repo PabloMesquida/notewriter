@@ -2,7 +2,12 @@ import { Note } from "../models/note";
 import { User } from "../models/user";
 
 async function fetchData(input: RequestInfo, init?: RequestInit) {
-  const response = await fetch(input, init);
+  const defaultInit: RequestInit = {
+    credentials: "include", // Incluir las credenciales en la solicitud
+  };
+
+  const response = await fetch(input, { ...defaultInit, ...init });
+
   if (response.ok) {
     return response;
   } else {
@@ -15,7 +20,7 @@ async function fetchData(input: RequestInfo, init?: RequestInit) {
 export async function getLoggedInUser(): Promise<User> {
   const response = await fetchData(
     "https://notewriter-backend.vercel.app/api/users",
-    { method: "GET", credentials: "include" }
+    { method: "GET" }
   );
 
   return response.json();
