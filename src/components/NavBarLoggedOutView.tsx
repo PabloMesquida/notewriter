@@ -11,7 +11,7 @@ const NavBarLoggedOutView = ({
 }: NavBarLoggedOutViewProps) => {
   return (
     <>
-      <Button onClick={onSignUpClicked}>Sing Up</Button>
+      <Button onClick={onSignUpClicked}>Sign Up</Button>
       <Button onClick={onLoginClicked}>Log In</Button>
     </>
   );
