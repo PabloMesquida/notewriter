@@ -6,12 +6,12 @@ import { Button, Form, Modal } from "react-bootstrap";
 import TextInputField from "./forms/TextInputField";
 import stylesUtils from "../styles/utils.module.css";
 
-interface SingUpModalProps {
+interface SignUpModalProps {
   onDismiss: () => void;
-  onSingUpSuccessful: (user: User) => void;
+  onSignUpSuccessful: (user: User) => void;
 }
 
-const SingUpModal = ({ onDismiss, onSingUpSuccessful }: SingUpModalProps) => {
+const SignUpModal = ({ onDismiss, onSignUpSuccessful }: SignUpModalProps) => {
   const {
     register,
     handleSubmit,
@@ -21,7 +21,7 @@ const SingUpModal = ({ onDismiss, onSingUpSuccessful }: SingUpModalProps) => {
   async function onSubmit(credentials: SignUpCredentials) {
     try {
       const newUser = await NotesApi.signUp(credentials);
-      onSingUpSuccessful(newUser);
+      onSignUpSuccessful(newUser);
     } catch (error) {
       alert(error);
       console.error(error);
@@ -75,4 +75,4 @@ const SingUpModal = ({ onDismiss, onSingUpSuccessful }: SingUpModalProps) => {
   );
 };
 
-export default SingUpModal;
+export default SignUpModal;
