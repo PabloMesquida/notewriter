@@ -7,6 +7,7 @@ import Note from "./components/Note";
 import styles from "./styles/NotesPage.module.css";
 import styleUtils from "./styles/utils.module.css";
 import AddEditNoteDialog from "./components/AddEditNoteDialog";
+import SingUpModal from "./components/SingUpModal";
 
 function App() {
   const [notes, setNotes] = useState<NoteModel[]>([]);
@@ -99,6 +100,9 @@ function App() {
             setNoteToEdit(null);
           }}
         />
+      )}
+      {true && (
+        <SingUpModal onDismiss={() => {}} onSingUpSuccessful={() => {}} />
       )}
     </Container>
   );

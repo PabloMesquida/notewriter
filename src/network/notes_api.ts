@@ -26,13 +26,13 @@ export async function getLoggedInUser(): Promise<User> {
   return response.json();
 }
 
-export interface SingUpCredentials {
+export interface SignUpCredentials {
   username: string;
   email: string;
   password: string;
 }
 
-export async function singUp(credentials: SingUpCredentials): Promise<User> {
+export async function signUp(credentials: SignUpCredentials): Promise<User> {
   const response = await fetchData(
     "https://notewriter-backend.vercel.app/api/users/signup",
     {
