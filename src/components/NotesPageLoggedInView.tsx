@@ -43,7 +43,7 @@ const NotesPageLoggedInView = () => {
   }
 
   const notesGrid = (
-    <Row xs={1} md={2} xl={3} className={`${styles.noteGrid} g-4`}>
+    <Row xs={1} md={2} xl={3} className={`${styles.notesGrid} g-4`}>
       {notes.map((note) => (
         <Col key={note._id}>
           <Note
