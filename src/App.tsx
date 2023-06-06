@@ -42,8 +42,8 @@ function App() {
               path="/"
               element={<NotesPage loggedInUser={loggedInUser} />}
             />
-            <Route path="/privacy" element={<PrivacyPage />} />
-            <Route path="/*" element={<NotFoundPage />} />
+            <Route path="privacy" element={<PrivacyPage />} />
+            <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </Container>
 
