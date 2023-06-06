@@ -1,7 +1,7 @@
 import * as NotesApi from "./network/notes_api";
 import { useEffect, useState } from "react";
-import { BrowserRouter } from "react-router-dom";
 import { Routes, Route } from "react-router";
+import { BrowserRouter } from "react-router-dom";
 import { Container } from "react-bootstrap";
 import { User } from "./models/user";
 import SignUpModal from "./components/SignUpModal";
@@ -42,8 +42,8 @@ function App() {
               path="/"
               element={<NotesPage loggedInUser={loggedInUser} />}
             />
-            <Route path="privacy" element={<PrivacyPage />} />
-            <Route path="*" element={<NotFoundPage />} />
+            <Route path="/privacy" element={<PrivacyPage />} />
+            <Route path="/*" element={<NotFoundPage />} />
           </Routes>
         </Container>
 
