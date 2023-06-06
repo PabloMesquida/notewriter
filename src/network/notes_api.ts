@@ -19,7 +19,7 @@ async function fetchData(input: RequestInfo, init?: RequestInit) {
 
 export async function getLoggedInUser(): Promise<User> {
   const response = await fetchData(
-    "http://notewriter-backend.vercel.app/api/users",
+    "https://notewriter-backend.vercel.app/api/users",
     { method: "GET" }
   );
 
