@@ -1,7 +1,7 @@
 import * as NotesApi from "./network/notes_api";
 import { useEffect, useState } from "react";
-import { Routes, Route } from "react-router";
-import { BrowserRouter } from "react-router-dom";
+
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Container } from "react-bootstrap";
 import { User } from "./models/user";
 import SignUpModal from "./components/SignUpModal";
