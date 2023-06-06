@@ -1,6 +1,5 @@
 import * as NotesApi from "./network/notes_api";
 import { useEffect, useState } from "react";
-
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Container } from "react-bootstrap";
 import { User } from "./models/user";
@@ -10,6 +9,7 @@ import NavBar from "./components/NavBar";
 import NotesPage from "./pages/NotesPage";
 import PrivacyPage from "./pages/PrivacyPage";
 import NotFoundPage from "./pages/NotFoundPage";
+import styles from "./styles/App.module.css";
 
 function App() {
   const [loggedInUser, setLoggedInUser] = useState<User | null>(null);
@@ -36,7 +36,7 @@ function App() {
           onSignUpClicked={() => setShowSignUpModal(true)}
           onLogoutSuccessful={() => setLoggedInUser(null)}
         />
-        <Container>
+        <Container className={styles.pageContainer}>
           <Routes>
             <Route
               path="/"
