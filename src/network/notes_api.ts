@@ -21,7 +21,7 @@ async function fetchData(input: RequestInfo, init?: RequestInit) {
 
 export async function getLoggedInUser(): Promise<User> {
   const response = await fetchData(
-    "https://notewriter-backend.vercel.app/api/users",
+    `${import.meta.env.VITE_SERVER_URL}/api/users`,
     { method: "GET" }
   );
 
@@ -36,7 +36,7 @@ export interface SignUpCredentials {
 
 export async function signUp(credentials: SignUpCredentials): Promise<User> {
   const response = await fetchData(
-    "https://notewriter-backend.vercel.app/api/users/signup",
+    `${import.meta.env.VITE_SERVER_URL}/api/users/signup`,
     {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -53,7 +53,7 @@ export interface LoginCredentials {
 
 export async function login(credentials: LoginCredentials): Promise<User> {
   const response = await fetchData(
-    "https://notewriter-backend.vercel.app/api/users/login",
+    `${import.meta.env.VITE_SERVER_URL}/api/users/login`,
     {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -64,14 +64,14 @@ export async function login(credentials: LoginCredentials): Promise<User> {
 }
 
 export async function logout() {
-  await fetchData("https://notewriter-backend.vercel.app/api/users/logout", {
+  await fetchData(`${import.meta.env.VITE_SERVER_URL}/api/users/logout`, {
     method: "POST",
   });
 }
 
 export async function fetchNotes(): Promise<Note[]> {
   const response = await fetchData(
-    "https://notewriter-backend.vercel.app/api/notes",
+    `${import.meta.env.VITE_SERVER_URL}/api/notes`,
     { method: "GET" }
   );
   return response.json();
@@ -84,7 +84,7 @@ export interface NoteInput {
 
 export async function createNote(note: NoteInput): Promise<Note> {
   const response = await fetchData(
-    "https://notewriter-backend.vercel.app/api/notes",
+    `${import.meta.env.VITE_SERVER_URL}/api/notes`,
     {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -99,7 +99,7 @@ export async function updateNote(
   note: NoteInput
 ): Promise<Note> {
   const response = await fetchData(
-    `https://notewriter-backend.vercel.app/api/notes/${noteId}`,
+    `${import.meta.env.VITE_SERVER_URL}/api/notes/${noteId}`,
     {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
@@ -110,7 +110,7 @@ export async function updateNote(
 }
 
 export async function deleteNote(noteId: string) {
-  await fetchData(`https://notewriter-backend.vercel.app/api/notes/${noteId}`, {
+  await fetchData(`${import.meta.env.VITE_SERVER_URL}/api/notes/${noteId}`, {
     method: "DELETE",
   });
 }
