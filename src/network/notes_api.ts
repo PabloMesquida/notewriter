@@ -1,6 +1,8 @@
 import { Note } from "../models/note";
 import { User } from "../models/user";
 
+console.log("ENV", import.meta.env.VITE_SERVER_URL);
+
 async function fetchData(input: RequestInfo, init?: RequestInit) {
   const defaultInit: RequestInit = {
     credentials: "include", // Incluir las credenciales en la solicitud
