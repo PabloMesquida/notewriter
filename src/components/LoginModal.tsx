@@ -1,8 +1,10 @@
 import * as NotesApi from "../network/notes_api";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { User } from "../models/user";
 import { LoginCredentials } from "../network/notes_api";
-import { Button, Form, Modal } from "react-bootstrap";
+import { UnauthorizedError } from "../errors/http_erros";
+import { Alert, Button, Form, Modal } from "react-bootstrap";
 import TextInputField from "./forms/TextInputField";
 import stylesUtils from "../styles/utils.module.css";
 
@@ -12,6 +14,7 @@ interface LoginModalProps {
 }
 
 const LoginModal = ({ onDismiss, OnLoginSuccessful }: LoginModalProps) => {
+  const [errorText, setErrorText] = useState<string | null>(null);
   const {
     register,
     handleSubmit,
@@ -23,7 +26,12 @@ const LoginModal = ({ onDismiss, OnLoginSuccessful }: LoginModalProps) => {
       const user = await NotesApi.login(credentials);
       OnLoginSuccessful(user);
     } catch (error) {
-      alert(error);
+      if (error instanceof UnauthorizedError) {
+        setErrorText(error.message);
+      } else {
+        alert(error);
+      }
+
       console.error(error);
     }
   }
@@ -34,6 +42,7 @@ const LoginModal = ({ onDismiss, OnLoginSuccessful }: LoginModalProps) => {
         <Modal.Title>Log In</Modal.Title>
       </Modal.Header>
       <Modal.Body>
+        {errorText && <Alert variant="danger">{errorText}</Alert>}
         <Form onSubmit={handleSubmit(onSubmit)}>
           <TextInputField
             name="username"
